@@ -1,5 +1,5 @@
 package com.bridgelabz.addressbooksystem;
 
-public class AddressBook {
+public class AddressBook extends Contacts {
 
 }
