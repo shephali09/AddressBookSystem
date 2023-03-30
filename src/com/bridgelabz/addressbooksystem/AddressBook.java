@@ -1,12 +1,16 @@
 package com.bridgelabz.addressbooksystem;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class AddressBook extends Contacts {
 
+	List<Contacts> contact = new ArrayList<Contacts>();
+	Scanner scanner = new Scanner(System.in);
+	Contacts contacts = new Contacts();
+
 	public void addContacts() {
-		Scanner scanner = new Scanner(System.in);
-		Contacts contacts = new Contacts();
 
 		System.out.println("Enter First Name: ");
 		String firstName = scanner.nextLine();
@@ -14,7 +18,7 @@ public class AddressBook extends Contacts {
 
 		System.out.println("Enter Last Name: ");
 		String lastName = scanner.nextLine();
-		contacts.setLastName(firstName);
+		contacts.setLastName(lastName);
 
 		System.out.println("Enter Address: ");
 		String address = scanner.nextLine();
@@ -39,6 +43,29 @@ public class AddressBook extends Contacts {
 		System.out.println("Enter Phone Number: ");
 		long phoneNumber = scanner.nextLong();
 		contacts.setPhoneNumber(phoneNumber);
+
+		contact.add(contacts);
+		System.out.println("Person added successfully!");
+	}
+
+	public void displayContacts() {
+
+		if (contact.isEmpty()) {
+			System.out.println("Address book is empty");
+		}
+		System.out.println("Address book");
+		for (Contacts contact : contact) {
+			System.out.println(contact.getFirstName());
+			System.out.println(contact.getLastName());
+			System.out.println(contact.getAddress());
+			System.out.println(contact.getCity());
+			System.out.println(contact.getState());
+			System.out.println(contact.getZip());
+			System.out.println(contact.getEmail());
+			System.out.println(contact.getPhoneNumber());
+
+		}
+
 	}
 
 }

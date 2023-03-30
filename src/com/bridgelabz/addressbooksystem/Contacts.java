@@ -7,12 +7,12 @@ public class Contacts {
 	public long phoneNumber;
 
 	Contacts() {
-		super();
+
 	}
 
 	public Contacts(String firstName, String lastName, String address, String city, String state, String email, int zip,
 			long phoneNumber) {
-		super();
+
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.address = address;
@@ -53,6 +53,10 @@ public class Contacts {
 
 	public void setCity(String city) {
 		this.city = city;
+	}
+
+	public String getState() {
+		return state;
 	}
 
 	public void setState(String state) {
