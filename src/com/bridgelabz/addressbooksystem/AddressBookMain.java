@@ -16,7 +16,7 @@ public class AddressBookMain {
 		int choice = scanner.nextInt();
 
 		while (choice != 0) {
-
+			
 			switch (choice) {
 
 			case 1:
@@ -40,8 +40,9 @@ public class AddressBookMain {
 
 			}
 			System.out.println("\n1.Add contact\n2.Show Contact\n3.Edit Contact\n4.Delete Contact\n0.Exit\n");
-			choice = scanner.nextInt();
+		    choice = scanner.nextInt();
 		}
+		
 		System.out.println("Good Bye to Address Book Program");
 
 	}
