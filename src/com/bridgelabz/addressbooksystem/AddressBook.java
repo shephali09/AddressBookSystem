@@ -3,6 +3,8 @@ package com.bridgelabz.addressbooksystem;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class AddressBook extends Contacts {
 
@@ -114,6 +116,24 @@ public class AddressBook extends Contacts {
 			}
 		}
 		return result;
+	}
+
+	public void countByCity(String city) {
+		long count = 0;
+		long countByCity = contact.stream().filter(p -> p.getCity().equalsIgnoreCase(city)).count();
+		for (Contacts contact : contact) {
+			countByCity = countByCity + count;
+		}
+		System.out.println("Number of Contacts list by city: " + countByCity);
+	}
+
+	public void countByState(String state) {
+		long count = 0;
+		long countByState = contact.stream().filter(p -> p.getState().equalsIgnoreCase(state)).count();
+		for (Contacts contact : contact) {
+			countByState = countByState + count;
+		}
+		System.out.println("Number of Contacts list by State: " + countByState);
 	}
 
 	public void displayContacts() {
