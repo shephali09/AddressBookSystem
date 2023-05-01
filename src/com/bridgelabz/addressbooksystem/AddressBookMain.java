@@ -1,18 +1,24 @@
 package com.bridgelabz.addressbooksystem;
 
+import java.io.IOException;
 import java.util.Scanner;
 
 public class AddressBookMain {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws IOException {
 
 		System.out.println("Welcome to Address Book Program!");
 
 		AddressBook addressbook = new AddressBook();
 
-		System.out.println(
-				"\n1.Add contact\n2.Show Contact\n3.Edit Contact\n4.Delete Contact\n5.Search By City\n6.Search By State\n7.Count By City\n8.Count By State\n9.Exit\n");
 		Scanner scanner = new Scanner(System.in);
+
+		addressbook.writeIntoFile();
+		addressbook.readFromFile();
+
+		System.out.println(
+				"\n1.Add contact\n2.Show Contact\n3.Edit Contact\n4.Delete Contact\n5.Search By City\n6.Search By State\n7.Count By City\n8.Count By State\n9.Write Into File\n10.Exit\n");
+
 		System.out.println("Enter choice");
 		int choice = scanner.nextInt();
 
@@ -50,7 +56,8 @@ public class AddressBookMain {
 				System.out.println("Enter state: ");
 				String stateName = scanner.next();
 				addressbook.countByState(stateName);
-			case 9:
+
+			case 10:
 				System.out.println("Program terminated successfully");
 				break;
 
@@ -58,7 +65,8 @@ public class AddressBookMain {
 				System.out.println("Enter Correct choice!");
 
 			}
-			System.out.println("\n1.Add contact\n2.Show Contact\n3.Edit Contact\n4.Delete Contact\n5.View By City\n6.View By State\n7.Count By City\n8.Count By State\n0.Exit\n");
+			System.out.println(
+					"\n1.Add contact\n2.Show Contact\n3.Edit Contact\n4.Delete Contact\n5.View By City\n6.View By State\n7.Count By City\n8.Count By State\n9.Write Into File\n0.Exit\n");
 			choice = scanner.nextInt();
 		}
 
