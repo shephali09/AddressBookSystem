@@ -367,4 +367,64 @@ public class AddressBook extends Contacts {
 		}
 	}
 
+	public void writeIntoJSONFile() throws IOException {
+		Gson gson = new Gson();
+		FileWriter fileWriter = new FileWriter(
+				"C:\\Users\\HP\\eclipse-workspace\\AddressBookSystem\\src\\com\\bridgelabz\\addressbooksystem\\AddressBook.json");
+		System.out.println("Enter first name: ");
+		String firstName = scanner.nextLine();
+
+		System.out.println("Enter last name: ");
+		String lastName = scanner.nextLine();
+
+		System.out.println("Enter address: ");
+		String address = scanner.nextLine();
+
+		System.out.println("Enter city: ");
+		String city = scanner.nextLine();
+
+		System.out.println("Enter state: ");
+		String state = scanner.nextLine();
+
+		System.out.println("Enter zip: ");
+		int zip = scanner.nextInt();
+
+		System.out.println("Enter phone number: ");
+		long phoneNumber = scanner.nextLong();
+
+		System.out.println("Enter email: ");
+		String email = scanner.next();
+
+		contacts.setFirstName(firstName);
+		contacts.setLastName(lastName);
+		contacts.setAddress(address);
+		contacts.setCity(city);
+		contacts.setState(state);
+		contacts.setZip(zip);
+		contacts.setPhoneNumber(phoneNumber);
+		contacts.setEmail(email);
+
+		String json = gson.toJson(contacts);
+		fileWriter.write(json);
+		fileWriter.close();
+		System.out.println(json);
+	}
+
+	public void readFromJSONFile() throws IOException {
+		Gson gson = new Gson();
+		System.out.println("Reading data from the json: ");
+		BufferedReader bufferedReader = new BufferedReader(new FileReader(
+				"C:\\Users\\HP\\eclipse-workspace\\AddressBookSystem\\src\\com\\bridgelabz\\addressbooksystem\\AddressBook.json"));
+		Contacts contacts = gson.fromJson(bufferedReader, Contacts.class);
+		System.out.println("First Name: " + contacts.getFirstName());
+		System.out.println("Last Name: " + contacts.getLastName());
+		System.out.println("Address: " + contacts.getAddress());
+		System.out.println("City: " + contacts.getCity());
+		System.out.println("State: " + contacts.getState());
+		System.out.println("Zip: " + contacts.getZip());
+		System.out.println("Phone Number: " + contacts.getPhoneNumber());
+		System.out.println("Email: " + contacts.getEmail());
+
+	}
+
 }

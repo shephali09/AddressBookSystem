@@ -15,10 +15,12 @@ public class AddressBookMain {
 
 		Scanner scanner = new Scanner(System.in);
 
-		//addressbook.writeIntoFile();
-		//addressbook.readFromFile();
-		addressbook.writeIntoCSVFile();
+		addressbook.writeIntoFile();
+		addressbook.readFromFile();
+		addressbook.writeIntoCSVFile();   
 		addressbook.readFromCSVFile();
+		addressbook.writeIntoJSONFile();
+		addressbook.readFromJSONFile();
 
 		System.out.println(
 				"\n1.Add contact\n2.Show Contact\n3.Edit Contact\n4.Delete Contact\n5.Search By City\n6.Search By State\n7.Count By City\n8.Count By State\n9.Write Into File\n10.Exit\n");
